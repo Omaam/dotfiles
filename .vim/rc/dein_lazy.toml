@@ -1,0 +1,52 @@
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['typescript']
+
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+
+
+[[plugins]]
+repo = 'thinca/vim-prettyprint'
+on_cmd = ['PP', 'PrettyPrint']
+
+
+[[plugins]]
+repo = 'thinca/vim-fontzoom'
+on_cmd = ['Fontzoom']
+on_map = ['<Plug>(fontzoom-']
+gui = 1
+
+
+[[plugins]]
+repo = "davidhalter/jedi-vim"
+on_ft = ['python']
+hook_add = '''
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_command = "<leader>d"
+  let g:jedi#goto_assignments_command = "<leader>g"
+  let g:jedi#goto_definitions_command = ""
+  let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = "<leader>n"
+  let g:jedi#rename_command = "<leader>R"
+  autocmd FileType python setlocal completeopt-=preview
+'''
+
+
+[[plugins]]
+repo = 'nvie/vim-flake8'
+on_ft = ['python']
+hook_source = '''
+  autocmd BufWritePost *.py call Flake8()
+  let g:flake8_quickfix_location="topleft"
+  let g:flake8_quickfix_height=7
+  let g:flake8_show_in_gutter=1
+  let g:flake8_show_in_file=1
+  let g:flake8_show_quickfix=1
+'''

@@ -1,0 +1,28 @@
+# Set all to blacklist
+/*
+/.**
+
+# Set some files to whitelist
+!/.zshrc
+!/.zshenv
+!/.zsh/
+!/.zsh/rc/
+!/.zsh/rc/**
+!/.vimrc
+!/.vim/
+!/.vim/rc/
+!/.vim/rc/**
+!/.bin/
+!/.bin/**
+!/.bin.local
+!/.tmux.conf
+!/.tmux/
+!/.config/
+!/.config/alacritty/
+!/.config/alacritty/**
+!/.gitignore_global
+
+!/README.md
+!/LICENSE
+!.gitignore
+!.gitkeep

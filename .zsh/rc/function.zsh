@@ -23,6 +23,8 @@ create_project_structure() {
     mkdir -p "$project_name/data/processed" # The final, canonical data sets for modeling.
     mkdir -p "$project_name/data/raw"       # The original, immutable data dump.
 
+    mkdir -p "$project_name/docker"         # The docker envioronment
+
     mkdir -p "$project_name/docs"           # A default Sphinx project; see sphinx-doc.org for details
 
     mkdir -p "$project_name/models"         # Trained and serialized models, model predictions, or model summaries
@@ -52,6 +54,8 @@ create_project_structure() {
     touch "$project_name/setup.py"          # Make this project pip installable with `pip install -e`
     # touch "$project_name/tox.ini"           # tox file with settings for running tox; see tox.readthedocs.io
 
+    touch "$project_name/docker/Dockerfile"               # Docker env.
+    touch "$project_name/docker/docker-compose.yml"       # How to compose docker env.
     touch "$project_name/src/__init__.py"                 # Makes src a Python module
     touch "$project_name/src/data/make_dataset.py"        # Script to make dataset
     touch "$project_name/src/features/build_features.py"  # Script to build features

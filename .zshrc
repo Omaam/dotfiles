@@ -6,6 +6,7 @@ source $ZSH/oh-my-zsh.sh
 
 source_target_files=(
   $HOME/.zsh/rc/function.zsh
+  $HOME/.zsh.local/rc/function.zsh
   $HOME/.zshrc.local
 )
 for f in "$source_target_files[@]"; do

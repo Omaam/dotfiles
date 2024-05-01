@@ -10,7 +10,6 @@ source_target_files=(
 )
 for f in "$source_target_files[@]"; do
   if [ -e $f ]; then
-    echo $f
     source $f
   fi
 done

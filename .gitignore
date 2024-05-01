@@ -21,6 +21,8 @@
 !/.config/alacritty/
 !/.config/alacritty/**
 !/.gitignore_global
+!/.venv/
+/.venv/**
 
 !/README.md
 !/LICENSE

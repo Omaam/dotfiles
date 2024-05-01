@@ -8,6 +8,8 @@
 !/.zsh/
 !/.zsh/rc/
 !/.zsh/rc/**
+!/.zsh.local/
+/.zsh.local/**
 !/.vimrc
 !/.vim/
 !/.vim/rc/
@@ -20,6 +22,7 @@
 !/.config/
 !/.config/alacritty/
 !/.config/alacritty/**
+/.config/alacritty/*local*
 !/.gitignore_global
 !/.venv/
 /.venv/**

@@ -1,13 +1,14 @@
 #!/bin/bash
 
+
 set_installer() {
     if [[ "$(uname)" == "Linux" ]]; then
         if [ -f /etc/os-release ]; then
             source /etc/os-release
             if [[ $ID == "ubuntu" ]]; then
-                INSTALLER="apt-get"
+                installer="apt"
             elif [[ $ID == "centos" ]]; then
-                INSTALLER="yum"
+                installer="yum"
             else
                 echo "Unsupported Linux distribution"
                 exit 1
@@ -17,12 +18,13 @@ set_installer() {
             exit 1
         fi
     elif [[ "$(uname)" == "Darwin" ]]; then
-        INSTALLER="brew"
+        installer="brew"
     else
         echo "Unsupported operating system"
         exit 1
     fi
 }
+
 
 install_required_commands() {
 
@@ -32,12 +34,31 @@ install_required_commands() {
     for cmd in "${commands[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "Installing $cmd..."
-            sudo "$installer" install -y "$cmd"
+            if [[ "$HOME" == "/root" ]]; then
+                "$installer" install -y "$cmd"
+            else
+                sudo "$installer" install -y "$cmd"
+            fi
         else
             echo "$cmd is already installed."
         fi
     done
 }
+
+
+clone_dotfiles() {
+    if [ ! -d ${dotdir} ]; then
+      if command -v "git" &> /dev/null; then
+        git clone https://github.com/Omaam/dotfiles.git ${dotdir}
+      else
+        echo "git required"
+        exit 1
+      fi
+    else
+      echo "dotfiles already exists"
+    fi
+}
+
 
 setup_environment() {
 
@@ -47,42 +68,44 @@ setup_environment() {
         mkdir "$HOME/.dotbackup"
     fi
 
-    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-    local dotdir=$(dirname ${script_dir})
-    if [[ "$HOME" != "$dotdir" ]];then
-        for f in $dotdir/.??*; do
+    for f in $dotdir/.??*; do
 
-        [[ `basename $f` == ".git" ]] && continue
-        [[ `basename $f` == ".gitignore" ]] && continue
+      [[ `basename $f` == ".git" ]] && continue
+      [[ `basename $f` == ".gitignore" ]] && continue
 
-        if [[ -L "$HOME/`basename $f`" ]];then
-            rm -f "$HOME/`basename $f`"
-        fi
-        if [[ -e "$HOME/`basename $f`" ]];then
-            mv "$HOME/`basename $f`" "$HOME/.dotbackup"
-        fi
+      # Check if file is symbolic link or not.
+      if [[ -L "$HOME/`basename $f`" ]];then
+          rm -f "$HOME/`basename $f`"
+      fi
 
-        ln -snf $f $HOME
+      # Check if file exists.
+      if [[ -e "$HOME/`basename $f`" ]];then
+          mv "$HOME/`basename $f`" "$HOME/.dotbackup"
+      fi
 
-        done
-    else
-        echo "same install src dest"
-    fi
+      ln -snf $f $HOME
+
+    done
 }
 
+
 setup_os_specific() {
-    if [ "$INSTALLER" == "brew" ]; then
+    if [ "$installer" == "brew" ]; then
         brew bundle --file $HOME/dotfiles/.brew/Brewfile
     fi
 }
 
 
 main() {
+
+    local dotdir=$HOME/dotfiles
+
     set_installer
     install_required_commands
+    clone_dotfiles
     setup_environment
     setup_os_specific
 }
 
-# Main実行
+
 main

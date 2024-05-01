@@ -29,6 +29,9 @@
 !/.venv/
 /.venv/**
 
+!/.brew/
+!/.brew/**
+
 !/README.md
 !/LICENSE
 !.gitignore

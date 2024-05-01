@@ -1,0 +1,12 @@
+tap "homebrew/bundle"
+
+brew "cask"
+brew "flake8"
+brew "tmux"
+cask "alacritty"
+cask "bitwarden"
+cask "google-chrome"
+cask "google-drive"
+cask "hammerspoon"
+cask "visual-studio-code"
+cask "zoom"

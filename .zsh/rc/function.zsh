@@ -54,8 +54,8 @@ create_project_structure() {
     touch "$project_name/setup.py"          # Make this project pip installable with `pip install -e`
     # touch "$project_name/tox.ini"           # tox file with settings for running tox; see tox.readthedocs.io
 
-    touch "$project_name/docker/Dockerfile"               # Docker env.
-    touch "$project_name/docker/docker-compose.yml"       # How to compose docker env.
+    touch "$project_name/docker/Dockerfile"               # Base docker env.
+    touch "$project_name/docker/compose.yml"              # How to compose docker env.
     touch "$project_name/src/__init__.py"                 # Makes src a Python module
     touch "$project_name/src/data/make_dataset.py"        # Script to make dataset
     touch "$project_name/src/features/build_features.py"  # Script to build features

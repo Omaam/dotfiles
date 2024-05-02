@@ -37,10 +37,19 @@ install_required_commands() {
             if [[ "$HOME" == "/root" ]]; then
                 "$installer" install -y "$cmd"
             else
-                sudo "$installer" install -y "$cmd"
+                echo $installer
+                if [[ "$installer" == "brew" ]]; then
+                    "$installer" update
+                    "$installer" upgrade
+                    "$installer" install -y "$cmd"
+                else
+                    sudo "$installer" update -y
+                    sudo "$installer" upgrade -y
+                    sudo "$installer" install -y "$cmd"
+                fi
             fi
         else
-            echo "$cmd is already installed."
+            echo "$cmd exists ... not installed"
         fi
     done
 }
@@ -55,7 +64,7 @@ clone_dotfiles() {
         exit 1
       fi
     else
-      echo "dotfiles already exists"
+      echo "dotfiles exists ... not installed, just update"
     fi
 }
 
@@ -90,8 +99,12 @@ setup_environment() {
 
 
 setup_os_specific() {
-    if [ "$installer" == "brew" ]; then
-        brew bundle --file $HOME/dotfiles/.brew/Brewfile
+    if [[ "$installer" == "brew" ]]; then
+        "$installer" update
+        "$installer" upgrade
+        brew bundle \
+          --no-lock \
+          --file $HOME/dotfiles/.brew/Brewfile
     fi
 }
 

@@ -13,10 +13,6 @@ live_config_reload = true  # Default: true
 # Offer IPC using alacritty msg (unix only)
 ipc_socket = true  # Default: true
 
-[shell]
-program = "/bin/zsh"
-args = ["-l", "-c", "tmux a -t base || tmux new-session -t base"]
-
 # ====================== FONT ======================
 [font]
 

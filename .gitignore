@@ -20,6 +20,7 @@
 !/.bin.local
 !/.tmux.conf
 !/.tmux/
+!/.tmux/plugins/
 !/.config/
 !/.config/alacritty/
 !/.config/alacritty/**

@@ -16,3 +16,8 @@ offset = { x = 0, y = 5 }  # Default: x = 0, y = 0
 
 # Startup mode (changes require restart)
 startup_mode = "Maximized"  # Default: "Windowed"
+
+
+# ====================== ENV =========================
+[env]
+TERM = "xterm-256color"

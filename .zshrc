@@ -7,7 +7,7 @@ source $ZSH/oh-my-zsh.sh
 source_target_files=(
   $HOME/.zsh/rc/function.zsh
   $HOME/.zsh.local/rc/function.zsh
-  $HOME/.zshrc.local
+  $HOME/.zsh.local/.zshrc
 )
 for f in "$source_target_files[@]"; do
   if [ -e $f ]; then

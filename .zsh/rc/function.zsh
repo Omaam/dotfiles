@@ -72,7 +72,7 @@ list_py_venvs() {
     done
 }
 
-activate_py_venv() {
+activate_common_venv() {
     if [ $# -eq 0 ]; then
         list_py_venvs
         return 1
@@ -90,5 +90,15 @@ activate_py_venv() {
     else
         echo "Virtual environment '$venv_name' not found."
         return 1
+    fi
+}
+
+function activate_project_venv() {
+    if [ -d ".venv" ]; then
+        source .venv/bin/activate
+    else
+      echo ".venv/bin/activate does not exist."
+      echo "Please create a virtual environment first."
+      return 1
     fi
 }

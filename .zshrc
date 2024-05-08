@@ -1,10 +1,4 @@
-# oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=()
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
-# Source settings
+# zsh
 source_target_files=(
   $HOME/.zsh/rc/function.zsh
   $HOME/.zsh.local/rc/function.zsh
@@ -17,10 +11,19 @@ for f in "$source_target_files[@]"; do
 done
 
 
-# ========== Common favored settings ==========
+# oh-my-zsh
+ZSH_THEME="robbyrussell"
+plugins=()
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 
-# Useful CDPATH (ref. Efficient Linux at the Command Line).
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+# Common favored settings
 export CDPATH="$HOME:$HOME/Work:$HOME/Data:.."
-
-# Short cut to the current main project.
 alias cdp="cd $PROJECT && pwd"

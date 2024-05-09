@@ -62,7 +62,6 @@ create_project_structure() {
       mkdir -p "$project_name/handouts"
       mkdir -p "$project_name/exercises"
       touch "$project_name/README.md"
-      touch "$project_name/setup.py"
   else
       echo "Error: Invalid style option."
       return 1

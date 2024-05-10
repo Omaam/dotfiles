@@ -25,5 +25,5 @@ eval "$(pyenv init -)"
 
 
 # Common favored settings
-export CDPATH="$HOME:$HOME/Work:$HOME/Data:.."
+export CDPATH=$HOME:$(cd && ls -d */ | sed -e "s|^|$HOME/|" -e "s|/$||" | tr "\n" ":")..
 alias cdp="cd $PROJECT && pwd"

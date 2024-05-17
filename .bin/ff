@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PROGRAM=$(basename $0)
+
+if [ "$#" -ge 2 ]; then
+  >&2 echo "$PROGRAM: Invalid arguments are given"
+  exit 1
+fi
+
+if [ ! -e "$HOME/.ALLFILES" ]; then
+  echo "$HOME/.ALLFILES does not exist"
+  echo "Start creating $HOME/.ALLFILES"
+  find "$HOME" -print > "$HOME/.ALLFILES"
+  echo "Finish creating $HOME/.ALLFILES"
+fi
+
+if [ "$1" == "-u" ]; then
+  echo "Updating $HOME/.ALLFILES"
+  find "$HOME" -print > "$HOME/.ALLFILES"
+  echo "Finished updating $HOME/.ALLFILES"
+  exit 0
+fi
+
+grep --color=auto "$@" "$HOME/.ALLFILES"

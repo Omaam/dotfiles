@@ -10,13 +10,13 @@ fi
 if [ ! -e "$HOME/.ALLFILES" ]; then
   echo "$HOME/.ALLFILES does not exist"
   echo "Start creating $HOME/.ALLFILES"
-  find "$HOME" -print > "$HOME/.ALLFILES"
+  find "$HOME" -print | sed "s|$HOME|~|g" > "$HOME/.ALLFILES"
   echo "Finish creating $HOME/.ALLFILES"
 fi
 
 if [ "$1" == "-u" ]; then
   echo "Updating $HOME/.ALLFILES"
-  find "$HOME" -print > "$HOME/.ALLFILES"
+  find "$HOME" -print | sed "s|$HOME|~|g" > "$HOME/.ALLFILES"
   echo "Finished updating $HOME/.ALLFILES"
   exit 0
 fi

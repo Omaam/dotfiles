@@ -1,0 +1,13 @@
+#!/bin/bash
+
+do_test() {
+  echo "================= TEST RESULT ===================="
+  echo "[command] $2"
+  echo "[expect] $1"
+  echo "[message]"
+  bash $2
+  echo "=================================================="
+  echo
+}
+
+do_test "$1" "$2"

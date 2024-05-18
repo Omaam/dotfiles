@@ -1,8 +1,8 @@
 # zsh
+source_target_files=($HOME/.zsh.local/.zshrc)
 source_target_files=(
-  $HOME/.zsh/rc/function.zsh
-  $HOME/.zsh.local/rc/function.zsh
-  $HOME/.zsh.local/.zshrc
+  $source_target_files
+  `find $HOME/.zsh/* -print`
 )
 for f in "$source_target_files[@]"; do
   if [ -e $f ]; then

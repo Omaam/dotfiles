@@ -1,2 +1,9 @@
 #!/bin/bash
 open "https://www.google.com/search?q=$*"
+
+# Kill parent terminal after opening google search.
+# TODO: If this behavior is not convinient, considering delete
+#   this feature.
+if [[ "$PPID" != "" ]]; then
+    kill -9 $PPID
+fi

@@ -28,3 +28,15 @@ eval "$(pyenv init -)"
 export CDPATH=$HOME:$(cd && ls -d */ | sed -e "s|^|$HOME/|" -e "s|/$||" | tr "\n" ":")..
 alias cdp="cd $PROJECT && pwd"
 export PATH=$PATH:$HOME/.bin
+
+
+# Update $HOME/.ALLFILES
+local allfiles="$HOME/.ALLFILES"
+if [ ! -e $allfiles ]; then
+  echo "Create $allfiles in the background"
+  ff -u &> /dev/null & disown
+elif [ -n "$(find $allfiles -mtime +0 -print)" ]; then
+  echo "Update $allfiles in the background" \
+       "since this was modified more than one day ago"
+  ff -u &> /dev/null & disown
+fi

@@ -40,3 +40,5 @@ elif [ -n "$(find $allfiles -mtime +0 -print)" ]; then
        "since this was modified more than one day ago"
   ff -u &> /dev/null & disown
 fi
+
+alias odl='open "$(find $HOME/Downloads/* -print0 | xargs -0 ls -t | head -1)"'

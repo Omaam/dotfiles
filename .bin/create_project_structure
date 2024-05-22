@@ -6,16 +6,21 @@ PROGRAM=$(basename $0)
 usage() {
   echo "Usage: $PROGRAM project_name [-s style]"
   echo "Styles:"
-  echo "  development - Default style for development projects"
-  echo "  lecture - Style for lecture materials"
+  echo "  plain       - Default style for plain projects"
+  echo "  development - Style for development projects"
+  echo "  lecture     - Style for lecture materials"
 }
 
 # スタイルごとのディレクトリ構造を作成する関数
 create_structure() {
+
   local project_name=$1
   local style=$2
 
   case $style in
+    plain)
+      create_project_plain $project_name
+      ;;
     development)
       create_project_development $project_name
       ;;
@@ -29,6 +34,16 @@ create_structure() {
       ;;
   esac
 }
+
+
+create_project_plain() {
+
+  project_name=$1
+
+  mkdir "$project_name"
+  touch "$project_name/README.md"  # The top-level README for developers using this project.
+}
+
 
 
 create_project_development() {
@@ -97,7 +112,7 @@ if [[ $1 == -* ]]; then
 fi
 
 project_name=$1
-style="development" # デフォルトスタイル
+style="plain" # デフォルトスタイル
 
 shift
 while getopts "s:" opt; do

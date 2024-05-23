@@ -28,8 +28,8 @@ eval "$(pyenv init -)"
 export CDPATH=$HOME:$(cd && ls -d */ | sed -e "s|^|$HOME/|" -e "s|/$||" | tr "\n" ":")..
 export PATH=$PATH:$HOME/.bin
 alias cdp="cd $PROJECT && pwd"
-alias peak_dl='open "$(find $HOME/Downloads/* -print0 | xargs -0 ls -t | head -1)"'
-alias grab_dl='mv "$(find $HOME/Downloads/* -print0 | xargs -0 ls -t | head -1)" .'
+alias peakdl='open "$(find $HOME/Downloads/* -print0 | xargs -0 ls -t | head -1)"'
+alias grabdl='mv "$(find $HOME/Downloads/* -print0 | xargs -0 ls -t | head -1)" .'
 
 
 # Update $HOME/.ALLFILES

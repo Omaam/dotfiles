@@ -1,4 +1,8 @@
 function toggleApp(appName, key)
+  -- Usage
+  --   toggleApp("<app_name>", "<launch_key>")
+  -- Example
+  --   toggleApp("Google Chrome"", "c")
   hs.hotkey.bind({"control", "Shift"}, key, function()
     local app = hs.application.get(appName)
     if app == nil then
@@ -10,8 +14,3 @@ function toggleApp(appName, key)
     end
   end)
 end
-
--- Usage
---   toggleApp("<app_name>", "<launch_key>")
--- Example
---   toggleApp("Google Chrome"", "c")

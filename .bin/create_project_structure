@@ -6,8 +6,8 @@ PROGRAM=$(basename $0)
 usage() {
   echo "Usage: $PROGRAM project_name [-s style]"
   echo "Styles:"
-  echo "  plain       - Default style for plain projects"
-  echo "  development - Style for development projects"
+  echo "  plain       - Default style for plain project"
+  echo "  dev         - Style for devlopment project"
   echo "  lecture     - Style for lecture materials"
 }
 
@@ -17,12 +17,15 @@ create_structure() {
   local project_name=$1
   local style=$2
 
+  mkdir "$project_name"
+  touch "$project_name/README.md"
+  echo "# $project_name" > "$project_name/README.md"
+
   case $style in
     plain)
-      create_project_plain $project_name
       ;;
-    development)
-      create_project_development $project_name
+    dev)
+      create_project_dev $project_name
       ;;
     lecture)
       create_project_lecture $project_name
@@ -36,17 +39,7 @@ create_structure() {
 }
 
 
-create_project_plain() {
-
-  project_name=$1
-
-  mkdir "$project_name"
-  touch "$project_name/README.md"  # The top-level README for developers using this project.
-}
-
-
-
-create_project_development() {
+create_project_dev() {
 
   project_name=$1
 
@@ -72,7 +65,6 @@ create_project_development() {
 
   touch "$project_name/LICENSE"                         # License file for the project.
   touch "$project_name/Makefile"                        # Makefile with commands like `make data` or `make train`
-  touch "$project_name/README.md"                       # The top-level README for developers using this project.
   touch "$project_name/requirements.txt"                # The requirements file for reproducing the analysis environment
                                                         # generated with `pip freeze > requirements.txt`
   touch "$project_name/setup.py"                        # Make this project pip installable with `pip install -e`
@@ -94,7 +86,6 @@ create_project_lecture() {
   mkdir -p "$project_name/slides"    #
   mkdir -p "$project_name/handouts"  #
   mkdir -p "$project_name/exercises" #
-  touch "$project_name/README.md"    #
 }
 
 

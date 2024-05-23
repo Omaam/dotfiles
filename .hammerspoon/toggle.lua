@@ -10,3 +10,8 @@ function toggleApp(appName, key)
     end
   end)
 end
+
+-- Usage
+--   toggleApp("<app_name>", "<launch_key>")
+-- Example
+--   toggleApp("Google Chrome"", "c")

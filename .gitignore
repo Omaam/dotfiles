@@ -9,8 +9,7 @@
 !/.zsh/
 !/.zsh/rc/
 !/.zsh/rc/**
-!/.zsh.local/
-/.zsh.local/**
+!/.zsh/local/
 !/.vimrc
 !/.vim/
 !/.vim/rc/

@@ -1,16 +1,8 @@
 # zsh
 HISTSIZE=1000000
 HISTFILESIZE=1000000
-source_target_files=($HOME/.zsh.local/.zshrc)
-source_target_files=(
-  $source_target_files
-  `find $HOME/.zsh/* -print`
-)
-for f in "$source_target_files[@]"; do
-  if [ -e $f ]; then
-    source $f
-  fi
-done
+source_target_files=(`find $HOME/.zsh/* -type f -print`)
+for f in "$source_target_files[@]"; do source $f; done
 
 
 # oh-my-zsh

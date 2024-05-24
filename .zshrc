@@ -1,4 +1,6 @@
 # zsh
+HISTSIZE=1000000
+HISTFILESIZE=1000000
 source_target_files=($HOME/.zsh.local/.zshrc)
 source_target_files=(
   $source_target_files

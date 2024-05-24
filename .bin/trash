@@ -1,0 +1,21 @@
+trash() {
+  TRASH_DIR="$HOME/.Trash"
+
+  [ ! -d "$TRASH_DIR" ] && mkdir -p "$TRASH_DIR"
+
+  echo $@
+  if [ "$#" -eq 0 ]; then
+    echo "Usage: trash <file_or_directory> ..."
+    return 1
+  fi
+
+  for item in "$@"; do
+    if [ -e "$item" ]; then
+      mv "$item" "$TRASH_DIR"
+    else
+      echo "Error: '$item' does not exist."
+    fi
+  done
+}
+
+trash "$@"

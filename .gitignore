@@ -20,7 +20,6 @@
 !/.tmux.conf
 !/.tmux/
 !/.tmux/plugins/
-!/.tmux/plugins/tpm/
 !/.config/
 !/.config/alacritty/
 !/.config/alacritty/**

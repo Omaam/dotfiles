@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # tmux
-if [[ -n $(ls $HOME/.tmux/plugins/tpm) ]]; then
+if [[ ! -e $HOME/.tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
 

@@ -27,7 +27,7 @@
 /.config/alacritty/*local*
 !/.hammerspoon/
 !/.hammerspoon/**
-/.hammerspoon/init-local.lua
+/.hammerspoon/*local*
 !/.gitignore_global
 !/.venv/
 /.venv/**

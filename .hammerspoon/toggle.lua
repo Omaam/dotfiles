@@ -1,9 +1,21 @@
 function getAppPath(appName)
-  local appPath = "/Applications/" .. appName .. ".app"
-  if not hs.fs.attributes(appPath, "mode") then
-    appPath = "/System/Applications/" .. appName .. ".app"
+  local home = os.getenv("HOME")
+  local targetPaths = {
+    "/Applications",
+    "/System/Applications",
+    home .. "/Applications/Chrome Apps.localized"
+  }
+
+  for _, appPath in ipairs(targetPaths) do
+    if hs.fs.attributes(appPath, "mode") then
+      local appNamePath = appPath .. "/" .. appName .. ".app"
+      if hs.fs.attributes(appNamePath, "mode") then
+        return appNamePath
+      end
+    end
   end
-  return appPath
+
+  return nil
 end
 
 

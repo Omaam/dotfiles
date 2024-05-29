@@ -15,9 +15,23 @@ function getAppPath(appName)
     end
   end
 
-  local appNamePath = "/Applications/" .. appName .. ".app"
+  local appNamePath = searchExceptions(appName)
   return appNamePath
 
+end
+
+
+function searchExceptions(appName)
+  local exceptions = {
+    -- Add exceptions below.
+    Code = "/Applications/Code.app"
+  }
+  for key, value in pairs(exceptions) do
+    if key == appName then
+      return value
+    end
+  end
+  return nil
 end
 
 

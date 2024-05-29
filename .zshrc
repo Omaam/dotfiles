@@ -1,8 +1,9 @@
+source_target_files=(`find $HOME/.zsh/* ! -name "*.swp" -type f -print`)
+for f in "$source_target_files[@]"; do source $f; done
+
 # zsh
 HISTSIZE=1000000
 HISTFILESIZE=1000000
-source_target_files=(`find $HOME/.zsh/* ! -name "*.swp" -type f -print`)
-for f in "$source_target_files[@]"; do source $f; done
 
 
 # oh-my-zsh

@@ -15,7 +15,9 @@ function getAppPath(appName)
     end
   end
 
-  return nil
+  local appNamePath = "/Applications/" .. appName .. ".app"
+  return appNamePath
+
 end
 
 

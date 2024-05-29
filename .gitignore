@@ -6,12 +6,11 @@
 !/install.sh
 !/.zshrc
 !/.zshenv
-!/.zsh/**
+!/.zsh/
 !/.zsh/rc/
 !/.zsh/rc/**
 !/.zsh/functions/
 !/.zsh/functions/**
-!/.zsh/local/
 !/.vimrc
 !/.vim/
 !/.vim/rc/

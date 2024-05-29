@@ -11,6 +11,7 @@
 !/.zsh/rc/**
 !/.zsh/functions/
 !/.zsh/functions/**
+!/.zsh/local/
 !/.vimrc
 !/.vim/
 !/.vim/rc/

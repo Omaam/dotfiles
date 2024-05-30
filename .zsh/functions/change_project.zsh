@@ -35,9 +35,9 @@ chproj() {
 
   # 変数の値を更新する
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i '' "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" ~/.zshrc
+    sed -i '' "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" $VARIABLES_FILE
   else
-    sed -i "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" ~/.zshrc
+    sed -i "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" $VARIABLES_FILE
   fi
 
   # 更新された変数ファイルをソースする

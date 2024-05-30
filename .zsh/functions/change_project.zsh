@@ -31,6 +31,7 @@ chproj() {
   if [ ! -f "$VARIABLES_FILE" ]; then
     mkdir -p "$(dirname "$VARIABLES_FILE")"
     touch "$VARIABLES_FILE"
+    echo "PROJECT=\"$NEW_PROJECT_PATH\"" > $VARIABLES_FILE
   fi
 
   # 変数の値を更新する

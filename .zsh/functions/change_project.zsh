@@ -34,10 +34,10 @@ chproj() {
   fi
 
   # 変数の値を更新する
-  if grep -q "^PROJECT=" "$VARIABLES_FILE"; then
-    sed -i '' "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" "$VARIABLES_FILE"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" ~/.zshrc
   else
-    echo "PROJECT=\"$NEW_PROJECT_PATH\"" >> "$VARIABLES_FILE"
+    sed -i "s|^PROJECT=.*|PROJECT=\"$NEW_PROJECT_PATH\"|" ~/.zshrc
   fi
 
   # 更新された変数ファイルをソースする

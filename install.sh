@@ -5,7 +5,7 @@ set_installer() {
     if [[ "$(uname)" == "Linux" ]]; then
         if [ -f /etc/os-release ]; then
             source /etc/os-release
-            if [[ $ID == "ubuntu" ]]; then
+            if [[ $ID == "ubuntu" || $ID == "debian" ]]; then
                 installer="apt"
             elif [[ $ID == "centos" ]]; then
                 installer="yum"

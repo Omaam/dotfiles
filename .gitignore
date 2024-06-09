@@ -27,6 +27,8 @@
 !/.config/alacritty/**
 /.config/alacritty/themes/
 /.config/alacritty/*local*
+!/.config/git/
+!/.config/git/ignore
 !/.hammerspoon/
 !/.hammerspoon/**
 /.hammerspoon/*local*

@@ -1,4 +1,5 @@
-source_target_files=(`find $HOME/.zsh/* ! -name "*.swp" -type f -print`)
+source_target_files=(`find $HOME/.zsh/*/*.zsh -type f -print`)
+echo $source_target_files
 for f in "$source_target_files[@]"; do source $f; done
 
 # zsh
@@ -6,24 +7,10 @@ HISTSIZE=1000000
 HISTFILESIZE=1000000
 
 
-# oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=()
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
-
 # tmux
 if [[ ! -e $HOME/.tmux/plugins/tpm ]]; then
   git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
-
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 
 # Common favored settings
 export CDPATH=$HOME:$(cd && ls -d */ | sed -e "s|^|$HOME/|" -e "s|/$||" | tr "\n" ":")..

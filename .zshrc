@@ -1,5 +1,4 @@
 source_target_files=(`find $HOME/.zsh/*/*.zsh -type f -print`)
-echo $source_target_files
 for f in "$source_target_files[@]"; do source $f; done
 
 # zsh

@@ -59,8 +59,3 @@ function toggleApp(appName, key)
     end
   end)
 end
-
-
-toggleApp("Alacritty", ".")
-toggleApp("Code", "v")  -- Visual Studio Code
-toggleApp("Google Chrome", "c")

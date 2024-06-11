@@ -1,9 +1,10 @@
 # Set all to blacklist
-/*
+/**
 /.**
 
 # Set some files to whitelist
 !/install.sh
+
 !/dotfiles/
 !/dotfiles/zshrc
 !/dotfiles/zshenv
@@ -29,13 +30,13 @@
 !/dotfiles/tmux/plugins/
 /dotfiles/tmux/plugins/**
 
+!/dotfiles/config/
 !/dotfiles/config/alacritty/
 !/dotfiles/config/alacritty/**
 /dotfiles/config/alacritty/themes/
 /dotfiles/config/alacritty/*local*
 !/dotfiles/config/git/
 !/dotfiles/config/git/ignore
-/dotfiles/config/**
 
 !/dotfiles/hammerspoon/
 !/dotfiles/hammerspoon/**

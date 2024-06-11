@@ -77,22 +77,25 @@ setup_environment() {
         mkdir "$HOME/.dotbackup"
     fi
 
-    for f in $dotdir/.??*; do
+    for f in $dotdir/dotfiles/*; do
 
-      [[ `basename $f` == ".git" ]] && continue
-      [[ `basename $f` == ".gitignore" ]] && continue
+      linkpath=$"$HOME/.`basename $f`"
+
+      echo "save from $f"
+      echo "save to $linkpath"
 
       # Check if file is symbolic link or not.
-      if [[ -L "$HOME/`basename $f`" ]];then
-          rm -f "$HOME/`basename $f`"
+      if [[ -L $linkpath ]];then
+          rm -f $linkpath
       fi
 
       # Check if file exists.
-      if [[ -e "$HOME/`basename $f`" ]];then
-          mv "$HOME/`basename $f`" "$HOME/.dotbackup"
+      if [[ -e $target_dotfile ]];then
+          mv $linkpath "$HOME/.dotbackup"
       fi
 
-      ln -snf $f $HOME
+      ln -snf "$f" "$linkpath"
+      echo "ln -snf \"$f\" \"$linkpath\""
 
     done
 }
@@ -104,7 +107,7 @@ setup_os_specific() {
         "$installer" upgrade
         brew bundle \
           --no-lock \
-          --file $HOME/dotfiles/.brew/Brewfile
+          --file $HOME/.brew/Brewfile
     fi
 }
 

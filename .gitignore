@@ -4,7 +4,7 @@
 
 # Set some files to whitelist
 !/install.sh
-!/dotfiles
+!/dotfiles/
 !/dotfiles/zshrc
 !/dotfiles/zshenv
 !/dotfiles/zsh/
@@ -14,10 +14,12 @@
 !/dotfiles/zsh/functions/**
 !/dotfiles/zsh/local/
 /dotfiles/zsh/local/**
+
 !/dotfiles/vimrc
 !/dotfiles/vim/
 !/dotfiles/vim/rc/
 !/dotfiles/vim/rc/**
+
 !/dotfiles/bin/
 !/dotfiles/bin/**
 !/dotfiles/bin.local
@@ -27,13 +29,13 @@
 !/dotfiles/tmux/plugins/
 /dotfiles/tmux/plugins/**
 
-/dotfiles/config/
 !/dotfiles/config/alacritty/
 !/dotfiles/config/alacritty/**
 /dotfiles/config/alacritty/themes/
 /dotfiles/config/alacritty/*local*
 !/dotfiles/config/git/
 !/dotfiles/config/git/ignore
+/dotfiles/config/**
 
 !/dotfiles/hammerspoon/
 !/dotfiles/hammerspoon/**

@@ -81,9 +81,6 @@ setup_environment() {
 
       linkpath=$"$HOME/.`basename $f`"
 
-      echo "save from $f"
-      echo "save to $linkpath"
-
       # Check if file is symbolic link or not.
       if [[ -L $linkpath ]];then
           rm -f $linkpath
@@ -95,7 +92,6 @@ setup_environment() {
       fi
 
       ln -snf "$f" "$linkpath"
-      echo "ln -snf \"$f\" \"$linkpath\""
 
     done
 }

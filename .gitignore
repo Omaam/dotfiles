@@ -13,6 +13,7 @@
 !/dotfiles/zsh/functions/
 !/dotfiles/zsh/functions/**
 !/dotfiles/zsh/local/
+/dotfiles/zsh/local/**
 !/dotfiles/vimrc
 !/dotfiles/vim/
 !/dotfiles/vim/rc/
@@ -24,6 +25,7 @@
 !/dotfiles/tmux.conf
 !/dotfiles/tmux/
 !/dotfiles/tmux/plugins/
+/dotfiles/tmux/plugins/**
 
 /dotfiles/config/
 !/dotfiles/config/alacritty/

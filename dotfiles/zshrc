@@ -1,5 +1,4 @@
-source_target_files=(`find $HOME/.zsh/*/*.zsh -type f -print`)
-for f in "$source_target_files[@]"; do source $f; done
+source $HOME/.zsh/init.zsh
 
 # zsh
 HISTSIZE=1000000
@@ -29,3 +28,9 @@ elif [ -n "$(find $allfiles -mtime +0 -print)" ]; then
        "since this was modified more than one day ago"
   ff -u &> /dev/null & disown
 fi
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/omama/.dart-cli-completion/zsh-config.zsh ]] && . /Users/omama/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

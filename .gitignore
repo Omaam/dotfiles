@@ -6,15 +6,19 @@
 !/install.sh
 
 !/dotfiles/
+
 !/dotfiles/zshrc
 !/dotfiles/zshenv
 !/dotfiles/zsh/
-!/dotfiles/zsh/rc/
-!/dotfiles/zsh/rc/**
+!/dotfiles/zsh/init.zsh
+!/dotfiles/zsh/essential/
+!/dotfiles/zsh/essential/**
 !/dotfiles/zsh/functions/
 !/dotfiles/zsh/functions/**
 !/dotfiles/zsh/local/
 /dotfiles/zsh/local/**
+!/dotfiles/zsh/rc/
+!/dotfiles/zsh/rc/**
 
 !/dotfiles/vimrc
 !/dotfiles/vim/

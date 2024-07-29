@@ -30,3 +30,4 @@ function load_shell_files {
 alias load_rc='load_shell_files --rc'
 alias load_local='load_shell_files --local'
 alias load_functions='load_shell_files --functions'
+alias ldl='load_local'

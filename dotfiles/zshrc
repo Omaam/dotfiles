@@ -1,6 +1,8 @@
 # zsh
-source_target_files=(`find $HOME/.zsh/core -type f -print`)
-for f in "$source_target_files[@]"; do source $f; done
+source_target_files=(`find $HOME/.zsh/* -type f ! -name "*lazy*" -print`)
+for f in "${source_target_files[@]}"; do
+  source "$f"
+done
 
 # zsh
 HISTSIZE=1000000

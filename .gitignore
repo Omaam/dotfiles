@@ -17,6 +17,8 @@
 !/dotfiles/zsh/functions/**
 !/dotfiles/zsh/local/
 /dotfiles/zsh/local/**
+!/dotfiles/zsh/local_lazy/
+/dotfiles/zsh/local_lazy/**
 !/dotfiles/zsh/rc/
 !/dotfiles/zsh/rc/**
 

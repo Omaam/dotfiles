@@ -1,5 +1,7 @@
 # zsh
-source_target_files=(`find $HOME/.zsh/* -type f ! -name "*lazy*" -print`)
+source_target_files=(
+  `find $HOME/.zsh/* -type f  -name "*.zsh" ! -path "*lazy*" -print`
+)
 for f in "${source_target_files[@]}"; do
   source "$f"
 done

@@ -11,8 +11,8 @@
 !/dotfiles/zshenv
 !/dotfiles/zsh/
 !/dotfiles/zsh/init.zsh
-!/dotfiles/zsh/essential/
-!/dotfiles/zsh/essential/**
+!/dotfiles/zsh/core/
+!/dotfiles/zsh/core/**
 !/dotfiles/zsh/functions/
 !/dotfiles/zsh/functions/**
 !/dotfiles/zsh/local/

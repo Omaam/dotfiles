@@ -1,17 +1,3 @@
-inoremap <silent> jj <ESC>
-language C
-syntax on
-set autoindent
-set colorcolumn=80
-set expandtab
-set hlsearch
-set number
-set showmatch
-set shiftwidth=2
-set splitright
-set tabstop=2
-syntax on
-
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -48,3 +34,16 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+inoremap <silent> jj <ESC>
+language C
+set autoindent
+set colorcolumn=80
+set expandtab
+set hlsearch
+set number
+set showmatch
+set shiftwidth=2
+set splitright
+set tabstop=2
+syntax on

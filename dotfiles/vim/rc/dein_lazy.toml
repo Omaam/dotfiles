@@ -26,8 +26,8 @@ on_ft = ['dart']
 
 
 ### Java
-# ref: https://github.com/vim-scripts/vim-javacomplete2
 [[plugins]]
+# ref: https://github.com/vim-scripts/vim-javacomplete2
 repo = 'artur-shaik/vim-javacomplete2'
 on_ft = ['java']
 hook_source = '''

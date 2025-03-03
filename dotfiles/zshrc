@@ -34,15 +34,3 @@ elif [ -n "$(find $allfiles -mtime +0 -print)" ]; then
        "since this was modified more than one day ago"
   ff -u &> /dev/null & disown
 fi
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"

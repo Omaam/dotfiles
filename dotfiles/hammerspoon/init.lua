@@ -1,6 +1,6 @@
 -- Common toggle settings.
 require("toggle")
-toggleApp("Alacritty", ".")
+toggleApp("alacritty", ".")
 toggleApp("Code", "v")  -- Visual Studio Code
 toggleApp("Google Chrome", "c")
 

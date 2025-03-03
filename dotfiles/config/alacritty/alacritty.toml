@@ -1,3 +1,10 @@
+# ====================== GENERAL ======================
+[general]
+
+# Import additional configuration files
+import = [
+  "~/.config/alacritty/alacritty_local.toml"
+]
 
 # ====================== FONT ========================
 [font]
@@ -16,10 +23,3 @@ startup_mode = "Maximized"  # Default: "Windowed"
 # ====================== ENV =========================
 [env]
 TERM = "xterm-256color"
-
-[general]
-# ====================== GENERAL ======================
-# Import additional configuration files
-import = [
-  "~/.config/alacritty/alacritty_local.toml"
-]

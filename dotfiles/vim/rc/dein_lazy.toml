@@ -19,13 +19,13 @@ on_map = ['<Plug>(fontzoom-']
 gui = 1
 
 
-### Dart
+## Dart
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
 
 
-### Java
+## Java
 [[plugins]]
 # ref: https://github.com/vim-scripts/vim-javacomplete2
 repo = 'artur-shaik/vim-javacomplete2'
@@ -35,7 +35,7 @@ hook_source = '''
 '''
 
 
-### JavaScript
+## JavaScript
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = ['javascript']
@@ -45,7 +45,7 @@ hook_source = '''
 '''
 
 
-### Python
+## Python
 [[plugins]]
 repo = "davidhalter/jedi-vim"
 on_ft = ['python']
@@ -61,7 +61,7 @@ hook_add = '''
 '''
 
 
-### TypeScript
+## TypeScript
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
 on_ft = ['typescript']

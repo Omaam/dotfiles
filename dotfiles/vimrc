@@ -1,49 +1,61 @@
-let s:dein_dir = expand('~/.cache/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-" dein.vim がなければ github から落としてくる
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-
-" 設定開始
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  " プラグインリストを収めた TOML ファイル
-  " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir = expand('~/.vim/rc')
-  let s:toml = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-  " TOML を読み込み、キャッシュしておく
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " 設定終了
-  call dein#end()
-  call dein#save_state()
-endif
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+  \| endif
 
 
-" もし、未インストールものものがあったらインストール
-if dein#check_install()
-  call dein#install()
-endif
+call plug#begin()
 
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'dense-analysis/ale'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+
+" ale
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_java_javac_classpath = '.'
+let g:ale_java_javac_sourcepath = ['.']
+
+
+" lsp
+set signcolumn=no
+let g:lsp_buffer_enabled = 1
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_signs_enabled = 0
+let g:lsp_document_highlight_enabled = 0
+
+
+" 基本設定は上書きされないように最後に読み込む。
 inoremap <silent> jj <ESC>
 language C
-set autoindent
 set colorcolumn=80
 set expandtab
 set hlsearch
+set hidden
 set number
 set showmatch
 set shiftwidth=2
 set splitright
 set tabstop=2
+set wildmenu
 syntax on
+
+" インデントは基本的にオフにするが、前の行を参照にするという
+" シンプルなルールに従う autoindent はコントロールしやすいので有効する。
+filetype indent off
+set autoindent
